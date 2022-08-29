@@ -1,0 +1,90 @@
+{
+	"name": "amplify",
+	"version": "1.0.1",
+	"description": "Front-End starter kit for Studio 24",
+	"main": "index.js",
+	"directories": {
+		"doc": "docs",
+		"test": "tests"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/studio24/amplify.git"
+	},
+	"author": "Studio 24",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/studio24/amplify/issues"
+	},
+	"homepage": "https://github.com/studio24/amplify#readme",
+	"browserslist": [
+		">0.1%",
+		"last 2 Chrome versions",
+		"last 2 Firefox versions",
+		"last 2 Edge versions",
+		"last 2 Samsung versions",
+		"Safari >= 12.1",
+		"ie 11",
+		"iOS >= 12.1",
+		"not dead"
+	],
+	"config": {
+		"from": "assets-src",
+		"to": "web/dist"
+	},
+	"scripts": {
+		"fonts": "shx cp -r ${npm_package_config_from}/fonts/* ${npm_package_config_to}/fonts",
+		"images": "shx cp -r ${npm_package_config_from}/images/* ${npm_package_config_to}/images",
+		"svgs": "svgo --folder=${npm_package_config_from}/svg --output=${npm_package_config_to}/svg",
+		"sass-core-expanded": "sass --no-source-map --error-css --style=expanded ${npm_package_config_from}/styles/core.scss ${npm_package_config_to}/styles/core.css",
+		"postsass-core-expanded": "postcss --no-map ${npm_package_config_to}/styles/core.css --use=autoprefixer --output=${npm_package_config_to}/styles/core.css",
+		"sass-advanced-expanded": "sass --no-source-map --error-css --style=expanded ${npm_package_config_from}/styles/advanced.scss ${npm_package_config_to}/styles/advanced.css",
+		"postsass-advanced-expanded": "postcss --no-map ${npm_package_config_to}/styles/advanced.css --use=autoprefixer --output=${npm_package_config_to}/styles/advanced.css",
+		"sass-print-expanded": "sass --no-source-map --error-css --style=expanded ${npm_package_config_from}/styles/print.scss ${npm_package_config_to}/styles/print.css",
+		"postsass-print-expanded": "postcss --no-map ${npm_package_config_to}/styles/print.css --use=autoprefixer --output=${npm_package_config_to}/styles/print.css",
+		"sass-core-compressed": "sass --no-source-map --style=compressed ${npm_package_config_from}/styles/core.scss ${npm_package_config_to}/styles/core.min.css",
+		"postsass-core-compressed": "postcss --no-map ${npm_package_config_to}/styles/core.min.css --use=autoprefixer --output=${npm_package_config_to}/styles/core.min.css",
+		"sass-advanced-compressed": "sass --no-source-map --style=compressed ${npm_package_config_from}/styles/advanced.scss ${npm_package_config_to}/styles/advanced.min.css",
+		"postsass-advanced-compressed": "postcss --no-map ${npm_package_config_to}/styles/advanced.min.css --use=autoprefixer --output=${npm_package_config_to}/styles/advanced.min.css",
+		"sass-print-compressed": "sass --no-source-map --style=compressed ${npm_package_config_from}/styles/print.scss ${npm_package_config_to}/styles/print.min.css",
+		"postsass-print-compressed": "postcss --no-map ${npm_package_config_to}/styles/print.min.css --use=autoprefixer --output=${npm_package_config_to}/styles/print.min.css",
+		"styles": "npm-run-all --parallel sass-core-expanded sass-core-compressed sass-advanced-expanded sass-advanced-compressed sass-print-expanded sass-print-compressed",
+		"js": "webpack --config webpack.config.js",
+		"prebuild": "shx rm -rf ${npm_package_config_to} && shx mkdir -p ${npm_package_config_to}/fonts && shx mkdir ${npm_package_config_to}/images && shx mkdir ${npm_package_config_to}/js && shx mkdir ${npm_package_config_to}/js/libraries && shx mkdir ${npm_package_config_to}/styles && shx mkdir ${npm_package_config_to}/svg",
+		"build": "npm-run-all --parallel fonts images svgs js styles",
+		"watch:fonts": "chokidar ${npm_package_config_from}/fonts -c \"npm run fonts\"",
+		"watch:images": "chokidar ${npm_package_config_from}/images -c \"npm run images\"",
+		"watch:svgs": "chokidar ${npm_package_config_from}/svg -c \"npm run svgs\"",
+		"watch:js": "chokidar ${npm_package_config_from}/js -c \"npm run js\"",
+		"watch:styles": "chokidar ${npm_package_config_from}/styles -c \"npm run styles\"",
+		"start": "webpack-dev-server --config ./webpack.config.js",
+		"watch": "npm-run-all --parallel watch:*",
+		"dev": "concurrently \"npm run start\" \"npm run watch\""
+	},
+	"devDependencies": {
+		"@babel/core": "^7.16.12",
+		"@babel/preset-env": "^7.16.11",
+		"autoprefixer": "^10.4.0",
+		"babel-loader": "^8.2.3",
+		"browserslist": "^4.18.1",
+		"chokidar-cli": "^3.0.0",
+		"concurrently": "^7.3.0",
+		"copy-webpack-plugin": "^10.2.1",
+		"npm-run-all": "^4.1.5",
+		"postcss": "^8.3.11",
+		"postcss-cli": "^9.0.1",
+		"sass": "^1.54.5",
+		"sass-loader": "^13.0.2",
+		"shx": "^0.3.3",
+		"svgo": "^2.8.0",
+		"webpack": "^5.74.0",
+		"webpack-cli": "^4.9.1"
+	},
+	"dependencies": {
+		"accessible-autocomplete": "^2.0.3",
+		"fontfaceobserver": "^2.1.0",
+		"normalize.css": "^8.0.1",
+		"tabbyjs": "^12.0.3",
+		"webpack-dev-server": "^4.10.0"
+	}
+}

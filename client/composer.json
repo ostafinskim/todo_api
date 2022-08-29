@@ -1,0 +1,5 @@
+{
+    "require": {
+        "studio24/deployer-recipes": "^1.1"
+    }
+}

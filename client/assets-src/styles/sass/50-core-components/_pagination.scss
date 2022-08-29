@@ -1,0 +1,63 @@
+/*------------------------------------*\
+    #Pagination
+\*------------------------------------*/
+
+.pagination {
+	margin-top: rem(40);
+}
+
+
+.l-cluster.pagination > * {
+	margin-bottom: 0;
+	margin-top: 0;
+}
+
+
+.l-cluster.pagination > * > * {
+	margin-bottom: 0;
+	margin-top: 0;
+}
+
+
+.pagination__list {
+	a {
+		@include text-14;
+		color: $black;
+		display: block;
+		text-decoration: none;
+		padding: rem(11) rem(18);
+
+		&:visited {
+			color: $black;
+		}
+
+		&:focus {
+			background-color: $focus-color;
+			background-image: linear-gradient(to top, $black 3px, $focus-color 3px, $focus-color);
+			color: $black;
+			text-decoration: none;
+		}
+	}
+
+	a[href]:hover {
+		text-decoration: underline;
+		text-decoration-skip-ink: auto; // Not supported by Safari
+		text-underline-offset: 0.25em; // Supported by Safari
+	}
+
+	a[href][aria-current] {
+		background-color: $link-color;
+		color: $off-white;
+		font-weight: bold;
+
+		&:hover {
+			color: $off-white;
+			text-decoration: none;
+		}
+
+		&:focus {
+			color: $black;
+		}
+	}
+}
+

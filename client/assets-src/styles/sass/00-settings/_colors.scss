@@ -1,0 +1,68 @@
+/*------------------------------------*\
+    #Colors
+
+    Review and edit these default colours, then add further colors
+    as required for your project.
+
+    The ideal color contrast range for meeting WCAG AAA is 7:1 - 15:1
+
+    1. A contrast higher than 15:1 can be triggering, which is why we
+    avoid using pure white with pure black.
+\*------------------------------------*/
+
+/**
+Brand
+ */
+$blue: #0d599b;
+$navy: #001f3f;
+$purple: #920ba6;
+
+
+
+/**
+Neutrals
+ */
+$off-black: #252525; /* 1 */
+$off-white: #fcfcfc; /* 1 */
+$storm-gray: #545454;
+$twiki-gray: #bdbdbd;
+$light-gray: #cecdcd;
+$disable-gray: #303030; // Disabled button text colour, where $twiki-gray is the background colour
+
+$black: #000;
+$white: #fff;
+
+
+
+/**
+Links
+ */
+$link-color:                    $blue;
+$link-color--hover:             $navy;
+$link-color--visited:           $purple;
+
+
+
+/**
+Focus
+ */
+$focus-color:                   #ffdc00;
+
+
+
+/**
+Borders
+ */
+$border-color:                  $twiki-gray;
+$input-border-color:            $storm-gray;
+
+
+
+/**
+Contextual colours (meets WCAG AA for regular text against $off-white,
+so also safe for borders)
+ */
+$error-color:                   #b83123;
+$info-color:                    #235bd1;
+$success-color:                 #17731d;
+$warning-color:                 #965203;

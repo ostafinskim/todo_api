@@ -1,0 +1,59 @@
+/*------------------------------------*\
+    #Tabbed sections advanced
+    All roles are added via JavaScript
+
+    1. The `stack` mixin applies flexbox in the column direction,
+    so we need to prevent things like buttons and links
+    from stretching horizontally
+\*------------------------------------*/
+
+.component--tabs [role="tablist"] {
+	border-bottom: solid 1px $twiki-gray;
+	display: flex;
+	flex-flow: row nowrap;
+	max-width: 100%;
+	overflow-x: auto;
+	padding: 0 rem(24);
+
+	li {
+		flex-shrink: 0;
+		list-style: none;
+		margin-top: 0;
+		padding: 0;
+	}
+
+	li + li {
+		margin-left: rem(24);
+	}
+}
+
+[dir="rtl"] {
+	.component--tabs [role="tablist"] li + li {
+		margin-left: 0;
+		margin-right: rem(24);
+	}
+}
+
+
+.component--tabs a[role="tab"] {
+	background-color: $twiki-gray;
+	border: 0;
+	border-bottom: solid rem(3) transparent;
+	color: $off-black;
+	display: block;
+	padding: em(10) em(15);
+
+	&:focus,
+	&[aria-selected="true"] {
+		border-color: $info-color;
+		outline: none;
+		text-decoration: none;
+	}
+}
+
+
+.component--tabs [role="tabpanel"] {
+	@include stack;
+	align-items: flex-start; /* 1 */
+	padding: rem(24);
+}

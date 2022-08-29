@@ -1,0 +1,69 @@
+.register .main,
+#main {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.register {
+  .l-center {
+    padding: rem(30) 0;
+  }
+  .u-full-width {
+    min-height: calc(100vh - 200px);
+    height: 100%;
+    --bg: conic-gradient(from 0.5turn at bottom center, lightblue, white);
+    background: var(--bg);
+  }
+  .btn-grad {
+    background-image: linear-gradient(
+      to right,
+      #1e3c72 0%,
+      #2a5298 51%,
+      #1e3c72 100%
+    );
+    padding: 15px 45px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    display: block;
+  }
+
+  .btn-grad:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+  }
+}
+
+.amplify .register-layout {
+  --ease-3: cubic-bezier(0.25, 0, 0.3, 1);
+  --animation-fade-in: fade-in 2s var(--ease-3);
+  --animation-slide-in-down: slide-in-down 0.9s var(--ease-3);
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  @keyframes slide-in-down {
+    from {
+      transform: translateY(-100%);
+    }
+  }
+  max-width: rem($max-width);
+  margin: 0 auto;
+  padding: rem(80) rem(20) 0 rem(20);
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.register-layout {
+  animation: var(--animation-slide-in-down), var(--animation-fade-in);
+}

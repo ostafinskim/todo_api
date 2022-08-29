@@ -1,0 +1,24 @@
+/*------------------------------------*\
+    #Image component
+\*------------------------------------*/
+
+.component--image {
+	@include stack;
+
+	figcaption {
+		@include text-14;
+		@include stack;
+
+		> * {
+			max-width: rem(540);
+		}
+
+		> a {
+			align-self: flex-start;
+			display: inline-block;
+			margin: 0;
+			padding-bottom: rem(10);
+			padding-top: rem(10);
+		}
+	}
+}

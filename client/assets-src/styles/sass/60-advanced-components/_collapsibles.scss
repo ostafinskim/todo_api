@@ -1,0 +1,74 @@
+/*------------------------------------*\
+    #Collapsible sections advanced
+\*------------------------------------*/
+
+.js .component--collapsibles__panel {
+	padding: 0;
+}
+
+
+// Button added via JavaScript
+.js [data-heading="collapsibles"] button {
+	align-items: flex-start;
+	flex-direction: column;
+	padding: rem(25);
+	width: 100%;
+
+	.js-collapsible-heading {
+		@include text-20;
+		font-weight: $emphasis;
+		text-align: left;
+	}
+
+
+	.js-collapsible-toggle {
+		color: $link-color;
+	}
+
+
+	.js-collapsible-label {
+		@include text-16;
+	}
+
+	&:hover {
+		.js-collapsible-heading {
+			color: $link-color;
+		}
+
+		.js-collapsible-label {
+			text-decoration: underline;
+			text-decoration-skip-ink: auto; // Not supported by Safari
+			text-underline-offset: 0.25em; // Supported by Safari
+		}
+	}
+
+	&:focus {
+		background-color: $focus-color;
+
+		.js-collapsible-heading,
+		.js-collapsible-toggle {
+			color: $black;
+		}
+	}
+
+	&[aria-expanded="false"] {
+		.circle-up {
+			display: none;
+		}
+	}
+
+	&[aria-expanded="true"] {
+		.circle-down {
+			display: none;
+		}
+	}
+}
+
+
+.js .component--collapsibles__panel__content {
+	padding: 0 rem(25) rem(25);
+
+	&[aria-hidden="true"] {
+		display: none;
+	}
+}

@@ -1,0 +1,37 @@
+/*------------------------------------*\
+    #Notes
+
+    1. The `stack` mixin applies flexbox in the column direction,
+    so we need to prevent things like buttons and links
+    from stretching horizontally
+\*------------------------------------*/
+
+.note {
+	@include stack;
+	align-items: flex-start; /* 1 */
+	border-width: rem(5);
+
+	> * {
+		max-width: rem($text-measure);
+	}
+}
+
+
+.note--error {
+	border-color: $error-color;
+}
+
+
+.note--info {
+	border-color: $info-color;
+}
+
+
+.note--success {
+	border-color: $success-color;
+}
+
+
+.note--warning {
+	border-color: $warning-color;
+}

@@ -1,0 +1,93 @@
+/*------------------------------------*\
+    #Icons
+\*------------------------------------*/
+
+/**
+Icons are sized relative to font size, thanks to the em unit.
+
+1. When the cap unit is supported this will make it easier to match icon
+size to text size.
+ */
+.icon {
+	height: 0.75em;
+	height: 1cap; /* 1 */
+	width: 0.75em;
+	width: 1cap; /* 1 */
+}
+
+
+.icon--24 {
+	height: rem(24);
+	width: rem(24);
+}
+
+
+/**
+Use the `with-icon--before` or `with-icon--after` class
+on the icon's parent if there is a need to specify the spacing
+between text and icon. Pay attention to whether the icon comes
+before the text or after.
+
+2. Logical property creates spacing irrespective of text direction
+ */
+.with-icon--before,
+.with-icon--after {
+	align-items: center;
+	display: inline-flex;
+
+	.icon {
+		flex: 0 0 auto; // Prevent icon from shrinking
+	}
+}
+
+
+.with-icon--before {
+	.icon {
+		margin-right: rem(10); // IE fallback for next rule - only works for ltr languages
+
+		@supports (margin-inline-end: 1em) {
+			margin-right: 0;
+			margin-inline-end: rem(10); /* 2 */
+		}
+	}
+}
+
+
+.with-icon--after {
+	.icon {
+		margin-left: rem(10); // IE fallback for next rule - only works for ltr languages
+
+		@supports (margin-inline-start: 1em) {
+			margin-left: 0;
+			margin-inline-start: rem(10); /* 2 */
+		}
+	}
+}
+
+
+[dir="rtl"] {
+	.with-icon--before {
+		.icon {
+			margin-left: rem(10); // IE fallback for next rule - only works for ltr languages
+			margin-right: 0;
+
+			@supports (margin-inline-start: 1em) {
+				margin-left: 0;
+				margin-inline-end: rem(10); /* 2 */
+			}
+		}
+	}
+
+
+	.with-icon--after {
+		.icon {
+			margin-left: 0;
+			margin-right: rem(10); // IE fallback for next rule - only works for ltr languages
+
+			@supports (margin-inline-start: 1em) {
+				margin-right: 0;
+				margin-inline-start: rem(10); /* 2 */
+			}
+		}
+	}
+}

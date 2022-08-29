@@ -1,0 +1,78 @@
+/*------------------------------------*\
+    #Flow elements
+\*------------------------------------*/
+
+abbr {
+	text-decoration-skip-ink: auto; // Not supported by Safari
+	text-underline-offset: 0.25em; // Supported by Safari
+}
+
+
+dfn {
+	font-style: normal;
+	font-weight: $emphasis;
+}
+
+
+b,
+strong,
+.bold {
+	font-weight: $emphasis;
+}
+
+
+em,
+i {
+	font-style: italic;
+}
+
+
+small,
+.small,
+.small-caps {
+	@include text-14;
+}
+
+
+.small-caps {
+	text-shadow: 0 0 0 $off-black;
+	text-transform: uppercase;
+}
+
+
+hr,
+pre {
+	margin-bottom: rem(16);
+	margin-top: rem(16);
+}
+
+
+code,
+kbd,
+samp,
+pre {
+	font-family: $mono-family;
+	hyphens: none;
+	orphans: 3;
+	page-break-before: avoid;
+	text-transform: none;
+	widows: 3;
+}
+
+code,
+kbd,
+samp {
+	font-size: .9em;
+}
+
+samp kbd {
+	font-size: 1em;
+}
+
+code,
+kbd {
+	background-color: $off-black;
+	border-radius: rem(4);
+	color: $off-white;
+	padding: rem(2) rem(4);
+}

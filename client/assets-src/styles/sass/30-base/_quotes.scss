@@ -1,0 +1,20 @@
+/*------------------------------------*\
+    #Quotes
+\*------------------------------------*/
+
+blockquote {
+	margin: rem(16) 0;
+	padding: 0 rem(40);
+	@include text-20;
+	@include stack(1rem);
+
+	> * {
+		font-weight: bold;
+	}
+
+	cite {
+		font-size: 1rem;
+		font-style: normal;
+		font-weight: normal;
+	}
+}

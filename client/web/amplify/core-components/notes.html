@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en" class="no-js">
+
+<head>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Notes - Amplify</title>
+
+	<link rel="stylesheet" href="../../dist/styles/core.css" media="screen"/>
+
+	<!--
+    Print (Edge doesn't apply to print otherwise)
+    IE 10, 11
+    Edge
+    Chrome 29+, Opera 16+, Safari 6.1+, iOS 7+, Android ~4.4+
+    FF 29+
+    -->
+	<link rel="stylesheet" id="advanced-stylesheet" href="../../dist/styles/advanced.css" media="
+    only print, screen and (min-width: 1vm),
+    only all and (-ms-high-contrast: none), only all and (-ms-high-contrast: active),
+    only all and (pointer: fine), only all and (pointer: coarse), only all and (pointer: none),
+    only all and (-webkit-min-device-pixel-ratio:0) and (min-color-index:0),
+    only all and (min--moz-device-pixel-ratio:0) and (min-resolution: 3e1dpcm)
+	">
+
+	<link rel="stylesheet" href="../../dist/styles/print.css" media="print"/>
+
+	<script src="../../dist/js/libraries/fontfaceobserver.js"></script>
+
+	<script>
+		let myFont = new FontFaceObserver('Nunito');
+
+		Promise.all([myFont.load()]).then(function () {
+			document.documentElement.className += " fonts-loaded";
+		});
+
+		(function() {
+			let linkEl = document.getElementById('advanced-stylesheet');
+			if (window.matchMedia && window.matchMedia(linkEl.media).matches) {
+				let head = document.querySelector('head');
+				// Add main JS
+				let jsMain = document.createElement('script');
+				jsMain.src = '../../dist/js/main.js';
+				jsMain.defer = true;
+				head.appendChild(jsMain);
+				// Update classname to show JS is available
+				(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement);
+			}
+		})();
+	</script>
+
+
+</head>
+
+<body class="amplify">
+	<div class="not-footer">
+		<a href="#main" class="skip-link">Skip to content</a>
+		<header class="global-header">
+			<div class="l-center">
+				<a class="global-header__link" href="../index.html">Amplify from Studio 24</a>
+			</div>
+		</header>
+		<nav class="global-nav" aria-label="Main">
+			<div class="l-center">
+				<div class="l-cluster">
+					<ul class="clean-list">
+						<li><a class="global-nav__link" href="../get-started">Get started</a></li>
+						<li><a class="global-nav__link" href="../fundamentals">Fundamentals</a></li>
+						<li><a class="global-nav__link" href="../layout-helpers">Layout helpers</a></li>
+						<li class="current"><a class="global-nav__link" href="../core-components">Core components</a></li>
+						<li><a class="global-nav__link" href="../advanced-components">Advanced components</a></li>
+						<li><a class="global-nav__link" href="../design">Design handover &amp; standards</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<main id="main">
+			<div class="content-wrap">
+				<nav class="sidebar nav-secondary" aria-label="Secondary">
+					<ul class="clean-list" role="list">
+						<li><a class="nav-secondary__link" href="avatars.html">Avatars</a></li>
+						<li><a class="nav-secondary__link" href="breadcrumbs.html">Breadcrumbs</a></li>
+						<li><a class="nav-secondary__link" href="cards.html">Cards</a></li>
+						<li><a class="nav-secondary__link" href="image-component.html">Image component</a></li>
+						<li><a class="nav-secondary__link" href="main.html">Main</a></li>
+						<li><a class="nav-secondary__link" href="notes.html" aria-current="page">Notes</a></li>
+						<li><a class="nav-secondary__link" href="pagination.html">Pagination</a></li>
+						<li><a class="nav-secondary__link" href="progress-indicator.html">Progress indicator</a></li>
+						<li><a class="nav-secondary__link" href="quote-component.html">Quote component</a></li>
+						<li><a class="nav-secondary__link" href="shelves.html">Shelves</a></li>
+						<li><a class="nav-secondary__link" href="search.html">Simple search form</a></li>
+						<li><a class="nav-secondary__link" href="sticky-footer.html">Sticky footer</a></li>
+						<li><a class="nav-secondary__link" href="tag-list.html">Tag list</a></li>
+						<li><a class="nav-secondary__link" href="text-component.html">Text component</a></li>
+						<li><a class="nav-secondary__link" href="video.html">Video component</a></li>
+					</ul>
+				</nav>
+				<div><!-- Empty div used to create gutter (IE doesn't support grid-gap) --></div>
+				<div class="not-sidebar">
+					<div class="component component--text">
+						<h1>Notes</h1>
+						<p>Notes can be used for simple informational messages, and for success, warning and error alerts. They are an enhancement of the <a href="../layout-helpers/box.md#default-box">default box layout</a>.</p>
+					</div>
+					<div class="component">
+						<div class="l-box note note--info" role="status">
+							<h2 class="txt-saturn">Informative note heading</h2>
+							<p>Group calendering is currently in beta-test. We encourage everyone to use it and report feedback and issues to its <a href="#1">dedicated GitHub repository</a>.</p>
+						</div>
+					</div>
+					<div class="component">
+						<div class="l-box note note--success" role="status">
+							<h2 class="txt-saturn">Success note heading</h2>
+							<p>Main profile successfully updated.</p>
+						</div>
+					</div>
+					<div class="component">
+						<div class="l-box note note--warning" role="status">
+							<h2 class="txt-saturn">Warning note heading</h2>
+							<p>We could not detect your affiliation based on your email address. Please select your affiliation below or <a href="#2">go back to use your corporate email address.</a></p>
+						</div>
+					</div>
+					<div class="component">
+						<div class="l-box note note--error" role="alert">
+							<h2 class="txt-saturn">Error note heading</h2>
+							<p>There has been an error.</p>
+						</div>
+					</div>
+					<div class="component component--text">
+						<h2>Considerations</h2>
+						<p>Note the use of <code>role="status"</code> and <code>role="alert"</code>. Both create an ARIA live region.</p>
+						<p>If the content of the note is advisory information not important enough to justify an alert, use <code>role="status"</code>. When added to an element, the browser will send out an accessible status event to assistive technologies, which can then notify the user about it.</p>
+						<p>For error messages, use <code>role="alert"</code>. The alert role should read out content that has changed, or bring the user's attention to it immediately, so it should not be used for static content or used regularly. Alerts, by definition, are disruptive. Lots of alerts at once or unnecessary alerts will create a bad user experience.</p>
+					</div>
+				</div>
+			</div>
+		</main>
+	</div>
+	<footer class="global-footer">
+		<div class="l-center">
+			&copy; Studio 24
+		</div>
+	</footer>
+</body>
+
+</html>
